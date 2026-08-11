@@ -25,7 +25,7 @@ export const Route = createFileRoute("/services/")({
 
 const services = [
   {
-    href: "https://ksvm.lovable.app/",
+    href: "https://wmegroup.in/wmeclient/kohali_connect/auth-login.php",
     icon: <Users className="h-7 w-7" />,
     no: "01",
     title: "Kohli Patil Socio-Economic Portal",
@@ -74,7 +74,7 @@ const benefits = [
    ============================================================ */
 const servicesPreview = [
   {
-    href: "https://ksvm.lovable.app/",
+    href: "https://wmegroup.in/wmeclient/kohali_connect/auth-login.php",
     icon: (
       <svg className="h-[30px] w-[30px] stroke-[var(--gold-stroke)]" viewBox="0 0 24 24" fill="none" strokeWidth={1.6}>
         <path d="M12 21 C 6 17 3 13 3 9 C 3 6 5 4 8 4 C 10 4 12 6 12 8 C 12 6 14 4 16 4 C 19 4 21 6 21 9 C 21 13 18 17 12 21 Z" />
