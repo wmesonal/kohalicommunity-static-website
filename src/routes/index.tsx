@@ -1116,7 +1116,7 @@ function SamajParichaySection() {
 const servicesPreview = [
   {
     // href: "https://ksvm.lovable.app/",
-    href: "https://wmegroup.in/wmeclient/kohali_connect/auth-login.php",
+    href: "https://play.google.com/store/apps/details?id=com.kohaliconnect.wme.globle",
     icon: (
       <svg className="h-[30px] w-[30px] stroke-[var(--gold-stroke)]" viewBox="0 0 24 24" fill="none" strokeWidth={1.6}>
         <path d="M12 21 C 6 17 3 13 3 9 C 3 6 5 4 8 4 C 10 4 12 6 12 8 C 12 6 14 4 16 4 C 19 4 21 6 21 9 C 21 13 18 17 12 21 Z" />

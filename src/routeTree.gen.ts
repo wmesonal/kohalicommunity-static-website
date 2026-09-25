@@ -9,14 +9,19 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SupportRouteImport } from './routes/support'
 import { Route as StatisticsRouteImport } from './routes/statistics'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as SamajdarshanRouteImport } from './routes/samajdarshan'
+import { Route as ProfileRouteImport } from './routes/profile'
 import { Route as NoticesRouteImport } from './routes/notices'
 import { Route as KohliSamajRouteImport } from './routes/kohli-samaj'
 import { Route as GalleryRouteImport } from './routes/gallery'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CommitteeRouteImport } from './routes/committee'
+import { Route as BusinessesRouteImport } from './routes/businesses'
+import { Route as BusinessPromotionRouteImport } from './routes/business-promotion'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services.index'
 import { Route as LiveEventsIndexRouteImport } from './routes/live-events.index'
@@ -28,8 +33,14 @@ import { Route as SamajParichayTopicIdRouteImport } from './routes/samaj-paricha
 import { Route as LiveEventsVideoIdRouteImport } from './routes/live-events.$videoId'
 import { Route as EventsEventIdRouteImport } from './routes/events.$eventId'
 import { Route as CommitteeMemberIdRouteImport } from './routes/committee.$memberId'
+import { Route as BusinessIdRouteImport } from './routes/business.$id'
 import { Route as BooksBookIdRouteImport } from './routes/books.$bookId'
 
+const SupportRoute = SupportRouteImport.update({
+  id: '/support',
+  path: '/support',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const StatisticsRoute = StatisticsRouteImport.update({
   id: '/statistics',
   path: '/statistics',
@@ -50,6 +61,11 @@ const SamajdarshanRoute = SamajdarshanRouteImport.update({
   path: '/samajdarshan',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProfileRoute = ProfileRouteImport.update({
+  id: '/profile',
+  path: '/profile',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NoticesRoute = NoticesRouteImport.update({
   id: '/notices',
   path: '/notices',
@@ -68,6 +84,21 @@ const GalleryRoute = GalleryRouteImport.update({
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CommitteeRoute = CommitteeRouteImport.update({
+  id: '/committee',
+  path: '/committee',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessesRoute = BusinessesRouteImport.update({
+  id: '/businesses',
+  path: '/businesses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BusinessPromotionRoute = BusinessPromotionRouteImport.update({
+  id: '/business-promotion',
+  path: '/business-promotion',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -91,9 +122,9 @@ const EventsIndexRoute = EventsIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommitteeIndexRoute = CommitteeIndexRouteImport.update({
-  id: '/committee/',
-  path: '/committee/',
-  getParentRoute: () => rootRouteImport,
+  id: '/',
+  path: '/',
+  getParentRoute: () => CommitteeRoute,
 } as any)
 const BooksIndexRoute = BooksIndexRouteImport.update({
   id: '/books/',
@@ -122,8 +153,13 @@ const EventsEventIdRoute = EventsEventIdRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const CommitteeMemberIdRoute = CommitteeMemberIdRouteImport.update({
-  id: '/committee/$memberId',
-  path: '/committee/$memberId',
+  id: '/$memberId',
+  path: '/$memberId',
+  getParentRoute: () => CommitteeRoute,
+} as any)
+const BusinessIdRoute = BusinessIdRouteImport.update({
+  id: '/business/$id',
+  path: '/business/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BooksBookIdRoute = BooksBookIdRouteImport.update({
@@ -134,15 +170,21 @@ const BooksBookIdRoute = BooksBookIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/business-promotion': typeof BusinessPromotionRoute
+  '/businesses': typeof BusinessesRoute
+  '/committee': typeof CommitteeRouteWithChildren
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/kohli-samaj': typeof KohliSamajRoute
   '/notices': typeof NoticesRoute
+  '/profile': typeof ProfileRoute
   '/samajdarshan': typeof SamajdarshanRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistics': typeof StatisticsRoute
+  '/support': typeof SupportRoute
   '/books/$bookId': typeof BooksBookIdRoute
+  '/business/$id': typeof BusinessIdRoute
   '/committee/$memberId': typeof CommitteeMemberIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/live-events/$videoId': typeof LiveEventsVideoIdRoute
@@ -156,14 +198,19 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/business-promotion': typeof BusinessPromotionRoute
+  '/businesses': typeof BusinessesRoute
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/kohli-samaj': typeof KohliSamajRoute
   '/notices': typeof NoticesRoute
+  '/profile': typeof ProfileRoute
   '/samajdarshan': typeof SamajdarshanRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistics': typeof StatisticsRoute
+  '/support': typeof SupportRoute
   '/books/$bookId': typeof BooksBookIdRoute
+  '/business/$id': typeof BusinessIdRoute
   '/committee/$memberId': typeof CommitteeMemberIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/live-events/$videoId': typeof LiveEventsVideoIdRoute
@@ -178,15 +225,21 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/business-promotion': typeof BusinessPromotionRoute
+  '/businesses': typeof BusinessesRoute
+  '/committee': typeof CommitteeRouteWithChildren
   '/contact': typeof ContactRoute
   '/gallery': typeof GalleryRoute
   '/kohli-samaj': typeof KohliSamajRoute
   '/notices': typeof NoticesRoute
+  '/profile': typeof ProfileRoute
   '/samajdarshan': typeof SamajdarshanRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/statistics': typeof StatisticsRoute
+  '/support': typeof SupportRoute
   '/books/$bookId': typeof BooksBookIdRoute
+  '/business/$id': typeof BusinessIdRoute
   '/committee/$memberId': typeof CommitteeMemberIdRoute
   '/events/$eventId': typeof EventsEventIdRoute
   '/live-events/$videoId': typeof LiveEventsVideoIdRoute
@@ -202,15 +255,21 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/business-promotion'
+    | '/businesses'
+    | '/committee'
     | '/contact'
     | '/gallery'
     | '/kohli-samaj'
     | '/notices'
+    | '/profile'
     | '/samajdarshan'
     | '/services'
     | '/sitemap.xml'
     | '/statistics'
+    | '/support'
     | '/books/$bookId'
+    | '/business/$id'
     | '/committee/$memberId'
     | '/events/$eventId'
     | '/live-events/$videoId'
@@ -224,14 +283,19 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/business-promotion'
+    | '/businesses'
     | '/contact'
     | '/gallery'
     | '/kohli-samaj'
     | '/notices'
+    | '/profile'
     | '/samajdarshan'
     | '/sitemap.xml'
     | '/statistics'
+    | '/support'
     | '/books/$bookId'
+    | '/business/$id'
     | '/committee/$memberId'
     | '/events/$eventId'
     | '/live-events/$videoId'
@@ -245,15 +309,21 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/business-promotion'
+    | '/businesses'
+    | '/committee'
     | '/contact'
     | '/gallery'
     | '/kohli-samaj'
     | '/notices'
+    | '/profile'
     | '/samajdarshan'
     | '/services'
     | '/sitemap.xml'
     | '/statistics'
+    | '/support'
     | '/books/$bookId'
+    | '/business/$id'
     | '/committee/$memberId'
     | '/events/$eventId'
     | '/live-events/$videoId'
@@ -268,27 +338,38 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  BusinessPromotionRoute: typeof BusinessPromotionRoute
+  BusinessesRoute: typeof BusinessesRoute
+  CommitteeRoute: typeof CommitteeRouteWithChildren
   ContactRoute: typeof ContactRoute
   GalleryRoute: typeof GalleryRoute
   KohliSamajRoute: typeof KohliSamajRoute
   NoticesRoute: typeof NoticesRoute
+  ProfileRoute: typeof ProfileRoute
   SamajdarshanRoute: typeof SamajdarshanRoute
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   StatisticsRoute: typeof StatisticsRoute
+  SupportRoute: typeof SupportRoute
   BooksBookIdRoute: typeof BooksBookIdRoute
-  CommitteeMemberIdRoute: typeof CommitteeMemberIdRoute
+  BusinessIdRoute: typeof BusinessIdRoute
   EventsEventIdRoute: typeof EventsEventIdRoute
   LiveEventsVideoIdRoute: typeof LiveEventsVideoIdRoute
   SamajParichayTopicIdRoute: typeof SamajParichayTopicIdRoute
   BooksIndexRoute: typeof BooksIndexRoute
-  CommitteeIndexRoute: typeof CommitteeIndexRoute
   EventsIndexRoute: typeof EventsIndexRoute
   LiveEventsIndexRoute: typeof LiveEventsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/support': {
+      id: '/support'
+      path: '/support'
+      fullPath: '/support'
+      preLoaderRoute: typeof SupportRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/statistics': {
       id: '/statistics'
       path: '/statistics'
@@ -317,6 +398,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SamajdarshanRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/profile': {
+      id: '/profile'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notices': {
       id: '/notices'
       path: '/notices'
@@ -343,6 +431,27 @@ declare module '@tanstack/react-router' {
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/committee': {
+      id: '/committee'
+      path: '/committee'
+      fullPath: '/committee'
+      preLoaderRoute: typeof CommitteeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/businesses': {
+      id: '/businesses'
+      path: '/businesses'
+      fullPath: '/businesses'
+      preLoaderRoute: typeof BusinessesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/business-promotion': {
+      id: '/business-promotion'
+      path: '/business-promotion'
+      fullPath: '/business-promotion'
+      preLoaderRoute: typeof BusinessPromotionRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -375,10 +484,10 @@ declare module '@tanstack/react-router' {
     }
     '/committee/': {
       id: '/committee/'
-      path: '/committee'
+      path: '/'
       fullPath: '/committee/'
       preLoaderRoute: typeof CommitteeIndexRouteImport
-      parentRoute: typeof rootRouteImport
+      parentRoute: typeof CommitteeRoute
     }
     '/books/': {
       id: '/books/'
@@ -417,9 +526,16 @@ declare module '@tanstack/react-router' {
     }
     '/committee/$memberId': {
       id: '/committee/$memberId'
-      path: '/committee/$memberId'
+      path: '/$memberId'
       fullPath: '/committee/$memberId'
       preLoaderRoute: typeof CommitteeMemberIdRouteImport
+      parentRoute: typeof CommitteeRoute
+    }
+    '/business/$id': {
+      id: '/business/$id'
+      path: '/business/$id'
+      fullPath: '/business/$id'
+      preLoaderRoute: typeof BusinessIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/books/$bookId': {
@@ -431,6 +547,20 @@ declare module '@tanstack/react-router' {
     }
   }
 }
+
+interface CommitteeRouteChildren {
+  CommitteeMemberIdRoute: typeof CommitteeMemberIdRoute
+  CommitteeIndexRoute: typeof CommitteeIndexRoute
+}
+
+const CommitteeRouteChildren: CommitteeRouteChildren = {
+  CommitteeMemberIdRoute: CommitteeMemberIdRoute,
+  CommitteeIndexRoute: CommitteeIndexRoute,
+}
+
+const CommitteeRouteWithChildren = CommitteeRoute._addFileChildren(
+  CommitteeRouteChildren,
+)
 
 interface ServicesRouteChildren {
   ServicesSocioEconomicPortalRoute: typeof ServicesSocioEconomicPortalRoute
@@ -448,21 +578,25 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  BusinessPromotionRoute: BusinessPromotionRoute,
+  BusinessesRoute: BusinessesRoute,
+  CommitteeRoute: CommitteeRouteWithChildren,
   ContactRoute: ContactRoute,
   GalleryRoute: GalleryRoute,
   KohliSamajRoute: KohliSamajRoute,
   NoticesRoute: NoticesRoute,
+  ProfileRoute: ProfileRoute,
   SamajdarshanRoute: SamajdarshanRoute,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   StatisticsRoute: StatisticsRoute,
+  SupportRoute: SupportRoute,
   BooksBookIdRoute: BooksBookIdRoute,
-  CommitteeMemberIdRoute: CommitteeMemberIdRoute,
+  BusinessIdRoute: BusinessIdRoute,
   EventsEventIdRoute: EventsEventIdRoute,
   LiveEventsVideoIdRoute: LiveEventsVideoIdRoute,
   SamajParichayTopicIdRoute: SamajParichayTopicIdRoute,
   BooksIndexRoute: BooksIndexRoute,
-  CommitteeIndexRoute: CommitteeIndexRoute,
   EventsIndexRoute: EventsIndexRoute,
   LiveEventsIndexRoute: LiveEventsIndexRoute,
 }
