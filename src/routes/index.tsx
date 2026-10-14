@@ -460,7 +460,7 @@ function HomePage() {
               <div className="absolute inset-x-4 -bottom-3 top-6 rounded-[50%] bg-black/25 blur-xl" aria-hidden />
 
               {/* ===== TOP DOWEL ===== */}
-              <div className="relative z-20 mx-[-16px] -mb-[10px] flex items-center">
+              <div className="relative z-20 lg:mx-[-16px] -mb-[10px] flex items-center">
                 <div className="h-6 w-6 shrink-0 rounded-full bg-[radial-gradient(circle_at_35%_30%,#fdf3c7,var(--gold-400)_45%,var(--gold-600)_75%,#7a5a12_100%)] shadow-[0_3px_6px_rgba(0,0,0,0.4)]" />
                 <div className="relative h-3.5 flex-1 rounded-full bg-[linear-gradient(180deg,#fdf3c7_0%,var(--gold-400)_20%,var(--gold-600)_55%,#8a6510_100%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),inset_0_-2px_3px_rgba(0,0,0,0.35),0_2px_5px_rgba(0,0,0,0.3)]" />
                 <div className="h-6 w-6 shrink-0 rounded-full bg-[radial-gradient(circle_at_35%_30%,#fdf3c7,var(--gold-400)_45%,var(--gold-600)_75%,#7a5a12_100%)] shadow-[0_3px_6px_rgba(0,0,0,0.4)]" />
@@ -529,7 +529,7 @@ function HomePage() {
               </div>
 
               {/* ===== BOTTOM DOWEL ===== */}
-              <div className="relative z-20 -mt-2 mx-[-16px] flex items-center">
+              <div className="relative z-20 -mt-2 lg:mx-[-16px] flex items-center">
                 <div className="h-6 w-6 shrink-0 rounded-full bg-[radial-gradient(circle_at_35%_30%,#fdf3c7,var(--gold-400)_45%,var(--gold-600)_75%,#7a5a12_100%)] shadow-[0_3px_6px_rgba(0,0,0,0.4)]" />
                 <div className="relative h-3.5 flex-1 rounded-full bg-[linear-gradient(180deg,#fdf3c7_0%,var(--gold-400)_20%,var(--gold-600)_55%,#8a6510_100%)] shadow-[inset_0_1px_1px_rgba(255,255,255,0.6),inset_0_-2px_3px_rgba(0,0,0,0.35),0_2px_5px_rgba(0,0,0,0.3)]" />
                 <div className="h-6 w-6 shrink-0 rounded-full bg-[radial-gradient(circle_at_35%_30%,#fdf3c7,var(--gold-400)_45%,var(--gold-600)_75%,#7a5a12_100%)] shadow-[0_3px_6px_rgba(0,0,0,0.4)]" />
