@@ -60,7 +60,7 @@ const galleryRotations = ["rotate-[-4deg]", "rotate-[3deg]", "rotate-[-2deg]", "
    SHARED CTA BUTTONS
    ============================================================ */
 const goldButtonBase =
-  "group inline-flex items-center justify-center gap-1.5 rounded-[2px] px-5 py-2.5 sm:px-7 sm:py-3 font-['Mukta'] text-xs sm:text-sm font-bold tracking-[0.02em] transition-all duration-300 ease-in-out hover:-translate-y-1";
+"group inline-flex items-center justify-center gap-1.5 rounded-[2px] px-5 py-2.5 sm:px-7 sm:py-3 font-['Mukta'] text-xs sm:text-sm font-bold tracking-[0.02em] transition-all duration-300 ease-in-out hover:-translate-y-1";
 
 function GoldLink({
   to,

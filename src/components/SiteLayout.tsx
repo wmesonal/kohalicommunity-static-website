@@ -292,7 +292,7 @@ function SiteFooter() {
           {/* Quick links */}
           <div className="lg:col-span-2">
             <h4 className="relative inline-block font-display text-base font-semibold tracking-wide text-secondary">
-              {t("महत्त्वाचे दुवे")}
+              {t("महत्त्वाचे दुवे !")}
               <span className="absolute -bottom-1.5 left-0 h-[2px] w-6 bg-secondary/70" />
             </h4>
             <ul className="mt-5 space-y-2.5 text-sm">
